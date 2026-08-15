@@ -164,7 +164,7 @@
     .btn-outline{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.05)}
     .btn-outline:hover{background:rgba(255,255,255,.1)}
 
-    /* ---------- COMPUTADOR CON TARJETAS REPOSICIONADAS ---------- */
+    /* ---------- COMPUTADOR CON TARJETAS REAJUSTADAS EN LA ÓRBITA ---------- */
     .hero-visual{position:relative;min-height:430px;display:grid;place-items:center}
     .dashboard-orbit{
       width:min(450px,92vw);aspect-ratio:1/1;
@@ -230,7 +230,7 @@
       background:linear-gradient(180deg,#9aa9ba,#43566d);box-shadow:0 13px 25px rgba(0,0,0,.35)
     }
 
-    /* POSICIONAMIENTO DE LAS TARJETAS FLOTANTES SIN TAPAR EL COMPUTADOR */
+    /* COORDENADAS PRECISAS PARA ALINEAR SOBRE LA LÍNEA DE LA ÓRBITA */
     .float-card{
       position:absolute;padding:10px 12px;border-radius:14px;
       background:rgba(5,20,40,.85);border:1px solid rgba(102,217,255,.3);
@@ -238,9 +238,9 @@
       color:#fff;font-size:11px;font-weight:700;
       z-index:3;
     }
-    .fc1{top:4%;right:-2%} /* +Eficiencia */
-    .fc2{bottom:-2%;left:-4%} /* Datos → Acción (más abajo) */
-    .fc3{top:12%;left:-10%} /* Automatización (más arriba y a la izquierda) */
+    .fc1{top:4%;right:-2%}    /* +Eficiencia */
+    .fc2{bottom:4%;left:6%}  /* Datos → Acción (dentro de la línea de la órbita) */
+    .fc3{top:-2%;left:0%}     /* Automatización (más arriba y sobre la órbita) */
     .float-card b{display:block;font-size:16px;color:#fff;margin-bottom:2px}
     .float-card span{color:#9db1c8}
 
@@ -427,7 +427,7 @@
       .hero-visual{min-height:300px}
       .dashboard-orbit{width:310px}
       .float-card{transform:scale(.85)}
-      .fc1{right:-8%}.fc2{left:-8%}.fc3{left:-5%}
+      .fc1{right:-8%}.fc2{left:-4%}.fc3{left:-2%}
       .service-grid,.process-grid,.pillars{grid-template-columns:1fr}
       .contact-card{padding:22px}
       .footer-inner{flex-direction:column;align-items:flex-start}
@@ -501,7 +501,7 @@
         </div>
       </div>
 
-      <!-- LADO DERECHO: COMPUTADOR INTERACTIVO -->
+      <!-- LADO DERECHO: COMPUTADOR INTERACTIVO CON TARJETAS EN ÓRBITA -->
       <div class="hero-visual">
         <div class="dashboard-orbit">
           <div class="laptop">
@@ -534,7 +534,7 @@
             <div class="laptop-base"></div>
           </div>
 
-          <!-- TARJETAS FLOTANTES REPOSICIONADAS -->
+          <!-- TARJETAS FLOTANTES ALINEADAS PERFECTAMENTE SOBRE LA ÓRBITA -->
           <div class="float-card fc1"><b>+Eficiencia</b><span>Procesos optimizados</span></div>
           <div class="float-card fc2"><b>Datos → Acción</b><span>Información para decidir</span></div>
           <div class="float-card fc3"><b>Automatización</b><span>Menos trabajo manual</span></div>
