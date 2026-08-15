@@ -164,7 +164,7 @@
     .btn-outline{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.05)}
     .btn-outline:hover{background:rgba(255,255,255,.1)}
 
-    /* ---------- COMPUTADOR INTERACTIVO CON LOGOS Y TECNOLOGÍAS EN PANTALLA ---------- */
+    /* ---------- COMPUTADOR CON TARJETAS REPOSICIONADAS ---------- */
     .hero-visual{position:relative;min-height:430px;display:grid;place-items:center}
     .dashboard-orbit{
       width:min(450px,92vw);aspect-ratio:1/1;
@@ -229,6 +229,8 @@
       position:absolute;left:-9%;right:-9%;bottom:-20px;height:25px;border-radius:0 0 22px 22px;
       background:linear-gradient(180deg,#9aa9ba,#43566d);box-shadow:0 13px 25px rgba(0,0,0,.35)
     }
+
+    /* POSICIONAMIENTO DE LAS TARJETAS FLOTANTES SIN TAPAR EL COMPUTADOR */
     .float-card{
       position:absolute;padding:10px 12px;border-radius:14px;
       background:rgba(5,20,40,.85);border:1px solid rgba(102,217,255,.3);
@@ -236,7 +238,9 @@
       color:#fff;font-size:11px;font-weight:700;
       z-index:3;
     }
-    .fc1{top:4%;right:-2%}.fc2{bottom:8%;left:-2%}.fc3{top:28%;left:-6%}
+    .fc1{top:4%;right:-2%} /* +Eficiencia */
+    .fc2{bottom:-2%;left:-4%} /* Datos → Acción (más abajo) */
+    .fc3{top:12%;left:-10%} /* Automatización (más arriba y a la izquierda) */
     .float-card b{display:block;font-size:16px;color:#fff;margin-bottom:2px}
     .float-card span{color:#9db1c8}
 
@@ -497,7 +501,7 @@
         </div>
       </div>
 
-      <!-- LADO DERECHO: COMPUTADOR INTERACTIVO CON HERRAMIENTAS EN PANTALLA -->
+      <!-- LADO DERECHO: COMPUTADOR INTERACTIVO -->
       <div class="hero-visual">
         <div class="dashboard-orbit">
           <div class="laptop">
@@ -509,7 +513,7 @@
                 <div class="screen-title">GOETHE System Core</div>
               </div>
 
-              <!-- PANTALLA CON LOGOS / HERRAMIENTAS EN VIVO -->
+              <!-- HERRAMIENTAS EN PANTALLA -->
               <div class="tech-badges-grid">
                 <div class="t-badge"><i style="color:#ffd43b">🐍</i> Python</div>
                 <div class="t-badge"><i style="color:#f7df1e">⚡</i> JS / Web</div>
@@ -530,6 +534,7 @@
             <div class="laptop-base"></div>
           </div>
 
+          <!-- TARJETAS FLOTANTES REPOSICIONADAS -->
           <div class="float-card fc1"><b>+Eficiencia</b><span>Procesos optimizados</span></div>
           <div class="float-card fc2"><b>Datos → Acción</b><span>Información para decidir</span></div>
           <div class="float-card fc3"><b>Automatización</b><span>Menos trabajo manual</span></div>
