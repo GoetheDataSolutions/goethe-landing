@@ -344,6 +344,34 @@
     .footer-brand span{display:block;color:#6f87a1;font:500 10px Inter,sans-serif;letter-spacing:1.5px;margin-top:4px}
     footer p{font-size:11px}
 
+    /* ---------- WHATSAPP FLOAT BUTTON ---------- */
+    .whatsapp-float{
+      position:fixed;
+      bottom:24px;
+      right:24px;
+      width:60px;
+      height:60px;
+      background-color:#25d366;
+      color:#fff;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 25px rgba(37,211,102,.4);
+      z-index:9999;
+      transition:all .3s ease;
+    }
+    .whatsapp-float:hover{
+      transform:scale(1.1) translateY(-3px);
+      box-shadow:0 15px 30px rgba(37,211,102,.6);
+      background-color:#20ba5a;
+    }
+    .whatsapp-float svg{
+      width:34px;
+      height:34px;
+      fill:currentColor;
+    }
+
     /* ---------- MOBILE ---------- */
     @media(max-width:900px){
       .nav-links{display:none}.menu-btn{display:block}.nav-cta{display:none}
@@ -369,6 +397,8 @@
       .footer-inner{flex-direction:column;align-items:flex-start}
       .brand{min-width:auto}.brand-text{display:none}
       .brand-logo{width:62px;height:36px}
+      .whatsapp-float{bottom:18px;right:18px;width:52px;height:52px}
+      .whatsapp-float svg{width:28px;height:28px}
     }
 
     /* ---------- MOBILE MENU ---------- */
@@ -702,6 +732,13 @@
       <p>© <span id="year"></span> GOETHE Data Solutions. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a class="whatsapp-float" href="https://wa.me/573011451490?text=Hola%20GOETHE%20Data%20Solutions%2C%20vengo%20desde%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M12.031 2c-5.517 0-9.993 4.476-9.993 9.993 0 1.763.459 3.483 1.33 5.001l-1.396 5.09 5.222-1.368c1.464.798 3.12 1.218 4.837 1.218 5.517 0 9.993-4.476 9.993-9.993 0-2.668-1.039-5.176-2.927-7.064s-4.396-2.927-7.066-2.927zm5.952 14.129c-.251.708-1.463 1.348-2.01 1.411-.502.057-1.157.086-1.859-.138-.426-.135-1.002-.325-1.737-.643-3.085-1.336-5.101-4.46-5.255-4.667-.154-.207-1.256-1.671-1.256-3.186 0-1.515.792-2.261 1.074-2.552.282-.291.615-.364.82-.364.205 0 .41.002.59.01.191.008.448-.073.701.532.261.625.892 2.17.969 2.327.077.157.128.341.026.547-.103.205-.154.333-.307.513-.154.18-.323.402-.461.54-.154.154-.315.323-.135.631.18.308.799 1.318 1.713 2.132 1.173 1.045 2.161 1.368 2.469 1.522.308.154.487.128.666-.077.18-.205.769-.897.974-1.205.205-.308.41-.256.692-.154.282.103 1.794.846 2.102 1.001.308.154.513.231.59.359.077.128.077.744-.174 1.452z"/>
+    </svg>
+  </a>
 
   <script>
     const nav = document.getElementById('nav');
