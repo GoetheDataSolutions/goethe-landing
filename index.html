@@ -112,7 +112,7 @@
       color:#fff;
     }
     .hero-grid{
-      display:grid;grid-template-columns:1fr 1fr;gap:45px;
+      display:grid;grid-template-columns:1.05fr .95fr;gap:55px;
       align-items:center;position:relative;z-index:2
     }
     .eyebrow{
@@ -163,122 +163,50 @@
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(3,114,187,.5)}
     .btn-outline{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.05)}
     .btn-outline:hover{background:rgba(255,255,255,.1)}
-
-    /* ---------- HERO VISUAL: TECH MATRIX DE CONTROL (NUEVO LADO DERECHO) ---------- */
-    .hero-visual{position:relative;width:100%;display:flex;justify-content:center}
-    .tech-matrix-container{
-      width:100%;
-      max-width:520px;
-      background:rgba(7,24,47,.75);
-      border:1px solid rgba(102,217,255,.3);
-      border-radius:24px;
-      padding:24px;
-      backdrop-filter:blur(16px);
-      box-shadow:0 20px 50px rgba(0,0,0,.4), inset 0 0 30px rgba(3,114,187,.15);
+    .hero-visual{position:relative;min-height:430px;display:grid;place-items:center}
+    .dashboard-orbit{
+      width:min(430px,90vw);aspect-ratio:1/1;
+      border:1px solid rgba(102,217,255,.25);border-radius:50%;
+      box-shadow:inset 0 0 70px rgba(3,114,187,.12),0 0 50px rgba(3,114,187,.1);
       position:relative;
     }
-    .matrix-header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid rgba(102,217,255,.18);
-      padding-bottom:12px;
-      margin-bottom:18px;
+    .dashboard-orbit:before,.dashboard-orbit:after{
+      content:"";position:absolute;inset:12%;border-radius:50%;
+      border:1px dashed rgba(102,217,255,.22);
     }
-    .matrix-title{
-      font-size:11px;
-      font-weight:800;
-      color:#66d9ff;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      display:flex;
-      align-items:center;
-      gap:8px;
+    .dashboard-orbit:after{inset:26%;border-style:solid;border-color:rgba(255,255,255,.08)}
+    .laptop{
+      position:absolute;width:68%;height:44%;left:16%;top:26%;
+      border:2px solid #9fb2c8;border-radius:15px 15px 8px 8px;
+      background:linear-gradient(145deg,#0a1d37,#102d50);
+      box-shadow:0 0 35px rgba(102,217,255,.28);padding:16px;
     }
-    .matrix-status{
-      font-size:10px;
-      font-weight:700;
-      color:#25d366;
-      background:rgba(37,211,102,.12);
-      border:1px solid rgba(37,211,102,.3);
-      padding:3px 8px;
-      border-radius:999px;
-      display:flex;
-      align-items:center;
-      gap:5px;
+    .screen{height:100%;border-radius:7px;background:linear-gradient(160deg,#07162b,#0b3156);position:relative;overflow:hidden;padding:12px}
+    .screen-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:8px;height:100%}
+    .chart,.mini{border:1px solid rgba(102,217,255,.22);border-radius:6px;background:rgba(255,255,255,.03);position:relative}
+    .chart:after{
+      content:"";position:absolute;left:10%;right:10%;bottom:15%;height:55%;
+      border-left:2px solid #66d9ff;border-bottom:2px solid #66d9ff;
+      transform:skewY(-18deg);box-shadow:0 0 15px rgba(102,217,255,.5);
     }
-    .status-dot{
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:#25d366;
-      box-shadow:0 0 8px #25d366;
-      animation:pulse 1.8s infinite;
+    .mini-wrap{display:grid;gap:8px}
+    .mini:after{
+      content:"";position:absolute;left:12%;right:12%;bottom:16%;height:7px;border-radius:8px;
+      background:linear-gradient(90deg,#0372bb,#66d9ff);box-shadow:0 0 10px rgba(102,217,255,.4)
     }
-    @keyframes pulse{
-      0%,100%{opacity:1}
-      50%{opacity:.4}
+    .laptop-base{
+      position:absolute;left:-9%;right:-9%;bottom:-20px;height:25px;border-radius:0 0 22px 22px;
+      background:linear-gradient(180deg,#9aa9ba,#43566d);box-shadow:0 13px 25px rgba(0,0,0,.35)
     }
-
-    .tech-grid-layout{
-      display:grid;
-      gap:14px;
+    .float-card{
+      position:absolute;padding:11px 13px;border-radius:14px;
+      background:rgba(5,20,40,.78);border:1px solid rgba(102,217,255,.25);
+      backdrop-filter:blur(12px);box-shadow:0 15px 35px rgba(0,0,0,.25);
+      color:#fff;font-size:11px;font-weight:700;
     }
-    .tech-group{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:12px 14px;
-      transition:all .3s ease;
-    }
-    .tech-group:hover{
-      border-color:rgba(102,217,255,.4);
-      background:rgba(255,255,255,.05);
-      transform:translateY(-2px);
-    }
-    .tech-group-label{
-      font-size:10px;
-      font-weight:800;
-      color:#9fb3c8;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      margin-bottom:8px;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-    .tech-pills-wrap{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-    }
-    .tech-chip{
-      font-size:11px;
-      font-weight:700;
-      padding:5px 10px;
-      border-radius:8px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      color:#e1ebf5;
-      display:inline-flex;
-      align-items:center;
-      gap:5px;
-      transition:.2s;
-    }
-    .tech-chip:hover{
-      transform:scale(1.05);
-    }
-    /* Colores personalizados por tecnología */
-    .chip-py{border-color:rgba(255,212,59,.4);color:#ffd43b;background:rgba(255,212,59,.1)}
-    .chip-js{border-color:rgba(247,223,30,.4);color:#f7df1e;background:rgba(247,223,30,.1)}
-    .chip-gas{border-color:rgba(66,133,244,.4);color:#66a3ff;background:rgba(66,133,244,.12)}
-    .chip-html{border-color:rgba(227,76,38,.4);color:#ff7a59;background:rgba(227,76,38,.1)}
-    .chip-bs{border-color:rgba(111,66,193,.4);color:#b388ff;background:rgba(111,66,193,.12)}
-    .chip-wa{border-color:rgba(37,211,102,.4);color:#52ea8c;background:rgba(37,211,102,.12)}
-    .chip-bi{border-color:rgba(242,200,17,.4);color:#f2c811;background:rgba(242,200,17,.1)}
-    .chip-xl{border-color:rgba(16,124,65,.4);color:#36ce7b;background:rgba(16,124,65,.12)}
-    .chip-vc{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.12)}
-    .chip-gh{border-color:rgba(163,113,247,.4);color:#d2a8ff;background:rgba(163,113,247,.1)}
+    .fc1{top:8%;right:1%}.fc2{bottom:12%;left:1%}.fc3{top:30%;left:-2%}
+    .float-card b{display:block;font-size:17px;color:#fff;margin-bottom:2px}
+    .float-card span{color:#9db1c8}
 
     /* ---------- COMMON SECTIONS ---------- */
     section{padding:92px 0}
@@ -449,7 +377,7 @@
       .nav-links{display:none}.menu-btn{display:block}.nav-cta{display:none}
       .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
       .hero{padding-top:125px}
-      .hero-visual{min-height:auto}
+      .hero-visual{min-height:350px}
       .service-grid{grid-template-columns:repeat(2,1fr)}
       .process-grid{grid-template-columns:repeat(2,1fr)}
       .identity-grid{grid-template-columns:1fr}
@@ -460,6 +388,10 @@
       .hero{min-height:auto;padding-bottom:60px}
       .hero h1{letter-spacing:-1px}
       .hero-logo{width:min(330px,90vw)}
+      .hero-visual{min-height:300px}
+      .dashboard-orbit{width:310px}
+      .float-card{transform:scale(.88)}
+      .fc1{right:-8%}.fc2{left:-8%}.fc3{left:-5%}
       .service-grid,.process-grid,.pillars{grid-template-columns:1fr}
       .contact-card{padding:22px}
       .footer-inner{flex-direction:column;align-items:flex-start}
@@ -513,7 +445,6 @@
     <div class="glow g1"></div><div class="glow g2"></div>
 
     <div class="container hero-grid">
-      <!-- LADO IZQUIERDO (MANTENIDO INTACTO) -->
       <div>
         <div class="eyebrow"><i></i> Tecnología al alcance de todos</div>
 
@@ -534,63 +465,22 @@
         </div>
       </div>
 
-      <!-- LADO DERECHO (MEJORADO: ECOSISTEMA Y NÚCLEO TECNOLÓGICO) -->
       <div class="hero-visual">
-        <div class="tech-matrix-container">
-          <div class="matrix-header">
-            <div class="matrix-title">⚡ Ecosistema & Tecnologías</div>
-            <div class="matrix-status"><div class="status-dot"></div> Soluciones Activas</div>
+        <div class="dashboard-orbit">
+          <div class="laptop">
+            <div class="screen">
+              <div class="screen-grid">
+                <div class="chart"></div>
+                <div class="mini-wrap">
+                  <div class="mini"></div><div class="mini"></div><div class="mini"></div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
           </div>
-
-          <div class="tech-grid-layout">
-            <div class="tech-group">
-              <div class="tech-group-label">💻 Lenguajes & Motores</div>
-              <div class="tech-pills-wrap">
-                <span class="tech-chip chip-py">Python</span>
-                <span class="tech-chip chip-js">JavaScript</span>
-                <span class="tech-chip chip-gas">Google Apps Script</span>
-              </div>
-            </div>
-
-            <div class="tech-group">
-              <div class="tech-group-label">🌐 Web & Frameworks</div>
-              <div class="tech-pills-wrap">
-                <span class="tech-chip chip-html">HTML5</span>
-                <span class="tech-chip">CSS3</span>
-                <span class="tech-chip chip-bs">Bootstrap</span>
-              </div>
-            </div>
-
-            <div class="tech-group">
-              <div class="tech-group-label">🤖 Automatización & Bots</div>
-              <div class="tech-pills-wrap">
-                <span class="tech-chip chip-wa">WhatsApp API</span>
-                <span class="tech-chip">Chatbots</span>
-                <span class="tech-chip">Robots RPA</span>
-                <span class="tech-chip">Macros / VBA</span>
-              </div>
-            </div>
-
-            <div class="tech-group">
-              <div class="tech-group-label">📊 Analytics & Nube</div>
-              <div class="tech-pills-wrap">
-                <span class="tech-chip chip-bi">Power BI</span>
-                <span class="tech-chip chip-vc">Vercel</span>
-                <span class="tech-chip chip-gh">GitHub</span>
-              </div>
-            </div>
-
-            <div class="tech-group">
-              <div class="tech-group-label">📁 Integración de Archivos & Datos</div>
-              <div class="tech-pills-wrap">
-                <span class="tech-chip chip-xl">Excel (.xlsx)</span>
-                <span class="tech-chip">CSV</span>
-                <span class="tech-chip">PDF</span>
-                <span class="tech-chip">Word (.docx)</span>
-                <span class="tech-chip">TXT</span>
-              </div>
-            </div>
-          </div>
+          <div class="float-card fc1"><b>+Eficiencia</b><span>Procesos optimizados</span></div>
+          <div class="float-card fc2"><b>Datos → Acción</b><span>Información para decidir</span></div>
+          <div class="float-card fc3"><b>Automatización</b><span>Menos trabajo manual</span></div>
         </div>
       </div>
     </div>
