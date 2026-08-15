@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07182f">
+  <meta name="description" content="GOETHE Data Solutions — Dashboards, automatizaciones, robots, chatbots, soluciones digitales, tiendas virtuales y aplicaciones para empresas y negocios.">
+  <title>GOETHE Data Solutions | Tecnología al alcance de todos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:#07182f;
+      --navy-2:#0a2344;
+      --blue:#0372bb;
+      --blue-2:#1d8fe0;
+      --cyan:#66d9ff;
+      --silver:#e9eef5;
+      --silver-2:#aeb9c8;
+      --white:#fff;
+      --text:#10213b;
+      --muted:#62738b;
+      --shadow:0 24px 70px rgba(0,20,55,.24);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{
+      font-family:Inter,Arial,sans-serif;
+      color:var(--text);
+      background:#f5f8fc;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+
+    /* ---------- TECHNOLOGY BACKGROUND ---------- */
+    .tech-bg{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 50% 10%,rgba(45,150,225,.28),transparent 35%),
+        radial-gradient(circle at 10% 60%,rgba(3,114,187,.22),transparent 28%),
+        linear-gradient(135deg,#06162d 0%,#0a2344 52%,#06172e 100%);
+    }
+    .tech-bg:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(102,217,255,.045) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(102,217,255,.045) 1px,transparent 1px);
+      background-size:42px 42px;
+      mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);
+      pointer-events:none;
+    }
+    .circuit{
+      position:absolute;width:420px;height:190px;
+      border:1px solid rgba(102,217,255,.35);
+      border-right:1px solid rgba(102,217,255,.22);
+      transform:skewX(-25deg);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .c1{top:110px;left:-100px}
+    .c2{bottom:80px;right:-100px;transform:skewX(25deg)}
+    .glow{
+      position:absolute;width:280px;height:280px;border-radius:50%;
+      background:rgba(45,155,235,.2);filter:blur(65px);pointer-events:none;
+    }
+    .g1{top:20%;right:-90px}.g2{bottom:8%;left:-90px}
+
+    /* ---------- NAV ---------- */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      padding:12px 0;
+      background:rgba(5,18,37,.72);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      transition:.3s;
+    }
+    nav.scrolled{background:rgba(5,18,37,.95);box-shadow:0 10px 35px rgba(0,0,0,.18)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;color:#fff;min-width:205px}
+    .brand-logo{
+      width:115px;height:auto;max-height:48px;object-fit:contain;
+      filter:drop-shadow(0 0 10px rgba(102,217,255,.18));
+    }
+    .brand-text strong{display:block;font:800 16px Montserrat,sans-serif;letter-spacing:.5px}
+    .brand-text span{font-size:9px;color:#b9c7d8;letter-spacing:1.8px}
+    .nav-links{display:flex;gap:22px;color:#d8e4f2;font-size:13px;font-weight:700}
+    .nav-links a{cursor:pointer}
+    .nav-links a:hover{color:#66d9ff}
+    .nav-cta{
+      padding:10px 16px;border:1px solid rgba(102,217,255,.55);
+      border-radius:999px;color:#fff;font-size:12px;font-weight:800;
+      background:rgba(3,114,187,.16);white-space:nowrap;
+    }
+    .menu-btn{display:none;color:#fff;background:none;border:0;font-size:25px;cursor:pointer}
+
+    /* ---------- HERO ---------- */
+    .hero{
+      min-height:760px;
+      display:flex;align-items:center;
+      padding:125px 0 82px;
+      color:#fff;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.05fr .95fr;gap:55px;
+      align-items:center;position:relative;z-index:2
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 12px;border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(102,217,255,.25);
+      color:#bfefff;font-size:11px;font-weight:800;
+      letter-spacing:1.4px;text-transform:uppercase;margin-bottom:18px;
+    }
+    .eyebrow i{width:7px;height:7px;border-radius:50%;background:#66d9ff;box-shadow:0 0 14px #66d9ff}
+    h1{
+      font-family:Montserrat,sans-serif;
+      font-size:clamp(42px,6vw,72px);
+      line-height:.96;letter-spacing:-2px;margin-bottom:18px;
+    }
+    h1 span{
+      display:block;
+      background:linear-gradient(180deg,#fff 12%,#aeb9c8 90%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      text-shadow:0 5px 30px rgba(255,255,255,.08);
+    }
+    .hero-logo{
+      width:min(420px,88vw);
+      max-height:100px;
+      object-fit:contain;
+      object-position:left center;
+      margin-bottom:16px;
+      filter:drop-shadow(0 0 18px rgba(102,217,255,.16));
+    }
+    .hero-line{
+      width:160px;height:3px;margin:14px 0 20px;
+      background:linear-gradient(90deg,transparent,#66d9ff,#fff,transparent);
+      box-shadow:0 0 18px rgba(102,217,255,.8);
+    }
+    .hero h2{font-size:clamp(22px,3vw,32px);font-weight:600;color:#dfe9f5;line-height:1.25}
+    .hero p{margin-top:20px;color:#b7c8da;line-height:1.75;max-width:620px;font-size:16px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:14px 21px;border-radius:13px;font-weight:800;font-size:13px;
+      transition:.25s;border:1px solid transparent;cursor:pointer;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#0d8ddd,#035d9d);
+      color:#fff;box-shadow:0 12px 30px rgba(3,114,187,.35);
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(3,114,187,.5)}
+    .btn-outline{border-color:rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.05)}
+    .btn-outline:hover{background:rgba(255,255,255,.1)}
+    .hero-visual{position:relative;min-height:430px;display:grid;place-items:center}
+    .dashboard-orbit{
+      width:min(430px,90vw);aspect-ratio:1/1;
+      border:1px solid rgba(102,217,255,.25);border-radius:50%;
+      box-shadow:inset 0 0 70px rgba(3,114,187,.12),0 0 50px rgba(3,114,187,.1);
+      position:relative;
+    }
+    .dashboard-orbit:before,.dashboard-orbit:after{
+      content:"";position:absolute;inset:12%;border-radius:50%;
+      border:1px dashed rgba(102,217,255,.22);
+    }
+    .dashboard-orbit:after{inset:26%;border-style:solid;border-color:rgba(255,255,255,.08)}
+    .laptop{
+      position:absolute;width:68%;height:44%;left:16%;top:26%;
+      border:2px solid #9fb2c8;border-radius:15px 15px 8px 8px;
+      background:linear-gradient(145deg,#0a1d37,#102d50);
+      box-shadow:0 0 35px rgba(102,217,255,.28);padding:16px;
+    }
+    .screen{height:100%;border-radius:7px;background:linear-gradient(160deg,#07162b,#0b3156);position:relative;overflow:hidden;padding:12px}
+    .screen-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:8px;height:100%}
+    .chart,.mini{border:1px solid rgba(102,217,255,.22);border-radius:6px;background:rgba(255,255,255,.03);position:relative}
+    .chart:after{
+      content:"";position:absolute;left:10%;right:10%;bottom:15%;height:55%;
+      border-left:2px solid #66d9ff;border-bottom:2px solid #66d9ff;
+      transform:skewY(-18deg);box-shadow:0 0 15px rgba(102,217,255,.5);
+    }
+    .mini-wrap{display:grid;gap:8px}
+    .mini:after{
+      content:"";position:absolute;left:12%;right:12%;bottom:16%;height:7px;border-radius:8px;
+      background:linear-gradient(90deg,#0372bb,#66d9ff);box-shadow:0 0 10px rgba(102,217,255,.4)
+    }
+    .laptop-base{
+      position:absolute;left:-9%;right:-9%;bottom:-20px;height:25px;border-radius:0 0 22px 22px;
+      background:linear-gradient(180deg,#9aa9ba,#43566d);box-shadow:0 13px 25px rgba(0,0,0,.35)
+    }
+    .float-card{
+      position:absolute;padding:11px 13px;border-radius:14px;
+      background:rgba(5,20,40,.78);border:1px solid rgba(102,217,255,.25);
+      backdrop-filter:blur(12px);box-shadow:0 15px 35px rgba(0,0,0,.25);
+      color:#fff;font-size:11px;font-weight:700;
+    }
+    .fc1{top:8%;right:1%}.fc2{bottom:12%;left:1%}.fc3{top:30%;left:-2%}
+    .float-card b{display:block;font-size:17px;color:#fff;margin-bottom:2px}
+    .float-card span{color:#9db1c8}
+
+    /* ---------- COMMON SECTIONS ---------- */
+    section{padding:92px 0}
+    .section-head{text-align:center;max-width:780px;margin:0 auto 45px}
+    .kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:800;color:var(--blue);margin-bottom:10px}
+    .section-head h2{font:800 clamp(30px,4vw,46px) Montserrat,sans-serif;color:var(--navy);letter-spacing:-1px}
+    .section-head p{color:var(--muted);line-height:1.75;margin-top:13px}
+
+    /* ---------- SERVICES ---------- */
+    .services{background:#f5f8fc}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{
+      background:#fff;border:1px solid #e3eaf3;border-radius:var(--radius);
+      padding:25px;position:relative;overflow:hidden;transition:.3s;
+      box-shadow:0 10px 35px rgba(16,43,75,.06);
+    }
+    .service:before{
+      content:"";position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--blue),var(--cyan),transparent);
+      transform:translateX(-35%);transition:.3s;
+    }
+    .service:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#cbdced}
+    .service:hover:before{transform:translateX(0)}
+    .icon{
+      width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+      color:#fff;font-size:23px;font-weight:900;
+      background:linear-gradient(145deg,#0b82cc,#062d58);
+      box-shadow:0 10px 25px rgba(3,114,187,.22);margin-bottom:20px
+    }
+    .service h3{font:700 19px Montserrat,sans-serif;color:var(--navy);margin-bottom:10px}
+    .service p{font-size:13px;color:var(--muted);line-height:1.7}
+    .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}
+    .tag{font-size:10px;font-weight:700;color:#31506f;background:#eef5fb;padding:6px 8px;border-radius:999px}
+
+    /* ---------- ABOUT ---------- */
+    .about{color:#fff}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center;position:relative;z-index:2}
+    .about h2{font:800 clamp(30px,4vw,48px) Montserrat,sans-serif;letter-spacing:-1px;margin-bottom:17px}
+    .about p{color:#b9cadb;line-height:1.8}
+    .about-card{
+      margin-top:25px;padding:20px;border-left:3px solid #66d9ff;
+      background:rgba(255,255,255,.05);border-radius:0 15px 15px 0;
+      color:#fff;font-size:15px;font-weight:700
+    }
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .pillar{padding:22px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.05)}
+    .pillar strong{display:block;font:700 18px Montserrat,sans-serif;margin-bottom:7px}
+    .pillar span{color:#9fb3c8;font-size:12px;line-height:1.55}
+
+    /* ---------- IDENTITY ---------- */
+    .identity{background:#fff}
+    .identity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .identity-card{
+      border:1px solid #e1e9f2;border-radius:22px;padding:26px;background:#f9fbfe;
+      box-shadow:0 10px 30px rgba(16,43,75,.05)
+    }
+    .identity-card h3{font:700 18px Montserrat,sans-serif;color:var(--navy);margin-bottom:10px}
+    .identity-card p{font-size:13px;line-height:1.75;color:var(--muted)}
+    .value-list{display:grid;gap:10px;margin-top:4px}
+    .value-item{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.55;color:var(--muted)}
+    .value-item b{color:var(--navy)}
+    .value-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px rgba(3,114,187,.35);margin-top:5px;flex:0 0 auto}
+
+    /* ---------- PROCESS ---------- */
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{position:relative;padding:22px;background:#fff;border:1px solid #e4ebf3;border-radius:20px}
+    .step-number{font:800 34px Montserrat,sans-serif;color:#dce7f1}
+    .step h3{font:700 16px Montserrat,sans-serif;margin:8px 0;color:var(--navy)}
+    .step p{font-size:12px;line-height:1.6;color:var(--muted)}
+
+    /* ---------- CATALOG ---------- */
+    .catalog{
+      padding:28px 0;background:#eef5fb;border-top:1px solid #e0e9f3;border-bottom:1px solid #e0e9f3
+    }
+    .catalog-box{
+      display:flex;align-items:center;justify-content:space-between;gap:25px;
+      background:linear-gradient(135deg,#07182f,#0b3a64);
+      color:#fff;border-radius:24px;padding:26px 30px;box-shadow:var(--shadow)
+    }
+    .catalog-box h3{font:700 21px Montserrat,sans-serif}
+    .catalog-box p{font-size:12px;color:#b8cadc;line-height:1.6;margin-top:5px}
+
+    /* ---------- CTA ---------- */
+    .cta{
+      padding:80px 0;background:linear-gradient(135deg,#06172e,#0b3157);
+      color:#fff;position:relative;overflow:hidden
+    }
+    .cta-box{display:flex;align-items:center;justify-content:space-between;gap:30px;position:relative;z-index:2}
+    .cta h2{font:800 clamp(29px,4vw,43px) Montserrat,sans-serif;letter-spacing:-1px}
+    .cta p{color:#b8cadc;margin-top:9px;line-height:1.65}
+    .cta-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* ---------- CONTACT ---------- */
+    .contact{background:#fff}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .contact-card{
+      padding:30px;border-radius:24px;background:#f7faff;border:1px solid #e0e9f3
+    }
+    .contact-card h3{font:700 20px Montserrat,sans-serif;color:var(--navy);margin-bottom:17px}
+    .contact-item{display:flex;gap:12px;align-items:flex-start;margin:14px 0}
+    .contact-icon{
+      width:38px;height:38px;border-radius:11px;background:#eaf4fb;
+      display:grid;place-items:center;color:var(--blue);font-weight:900;flex:0 0 auto
+    }
+    .contact-item strong{display:block;font-size:12px;color:#75869a;margin-bottom:3px}
+    .contact-item span,.contact-item a{font-size:14px;color:var(--navy);font-weight:700}
+    .contact-note{margin-top:18px;font-size:12px;color:var(--muted);line-height:1.6}
+    .contact-button{
+      margin-top:18px;display:inline-flex;padding:12px 16px;border-radius:12px;
+      background:#07182f;color:#fff;font-size:12px;font-weight:800
+    }
+    .contact-card.dark-card{
+      background:linear-gradient(145deg,#07182f 0%,#0a2a50 60%,#0b3a64 100%);
+      border:1px solid rgba(102,217,255,.35);
+      color:#fff;overflow:hidden;position:relative;
+      box-shadow:0 18px 45px rgba(7,24,47,.25)
+    }
+    .dark-card .card-content{position:relative;z-index:2}
+    .dark-card .kicker{color:#66d9ff!important}
+    .dark-card h3{color:#fff!important;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+    .dark-card p{color:#dce9f5!important;font-size:13px;line-height:1.8;margin-top:14px;font-weight:600}
+    .dark-card .service-line{
+      display:flex;gap:8px;flex-wrap:wrap;margin-top:18px
+    }
+    .dark-card .service-pill{
+      color:#fff;background:rgba(255,255,255,.10);
+      border:1px solid rgba(102,217,255,.25);padding:7px 9px;border-radius:999px;
+      font-size:10px;font-weight:800
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer{background:#041226;color:#8fa3ba;padding:28px 0}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .footer-brand{color:#fff;font:800 15px Montserrat,sans-serif}
+    .footer-brand span{display:block;color:#6f87a1;font:500 10px Inter,sans-serif;letter-spacing:1.5px;margin-top:4px}
+    footer p{font-size:11px}
+
+    /* ---------- MOBILE ---------- */
+    @media(max-width:900px){
+      .nav-links{display:none}.menu-btn{display:block}.nav-cta{display:none}
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{padding-top:125px}
+      .hero-visual{min-height:350px}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .process-grid{grid-template-columns:repeat(2,1fr)}
+      .identity-grid{grid-template-columns:1fr}
+      .cta-box,.catalog-box{flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:620px){
+      section{padding:70px 0}
+      .hero{min-height:auto;padding-bottom:60px}
+      .hero h1{letter-spacing:-1px}
+      .hero-logo{width:min(330px,90vw)}
+      .hero-visual{min-height:300px}
+      .dashboard-orbit{width:310px}
+      .float-card{transform:scale(.88)}
+      .fc1{right:-8%}.fc2{left:-8%}.fc3{left:-5%}
+      .service-grid,.process-grid,.pillars{grid-template-columns:1fr}
+      .contact-card{padding:22px}
+      .footer-inner{flex-direction:column;align-items:flex-start}
+      .brand{min-width:auto}.brand-text{display:none}
+      .brand-logo{width:62px;height:36px}
+    }
+
+    /* ---------- MOBILE MENU ---------- */
+    .mobile-menu{
+      display:none;background:rgba(5,18,37,.98);
+      border-top:1px solid rgba(255,255,255,.08);padding:10px 4%
+    }
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:13px 0;color:#d9e5f2;font-size:14px;border-bottom:1px solid rgba(255,255,255,.06)}
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand" onclick="goToSection(event,'inicio')">
+        <img class="brand-logo" src="https://lh3.googleusercontent.com/d/1XvWQaX2FAUKJa7gcnMIY9ni_qTT43sTV" alt="GOETHE Data Solutions">
+      </a>
+
+      <div class="nav-links">
+        <a href="#servicios" onclick="goToSection(event,'servicios')">Servicios</a>
+        <a href="#nosotros" onclick="goToSection(event,'nosotros')">Nosotros</a>
+        <a href="#proceso" onclick="goToSection(event,'proceso')">Proceso</a>
+        <a href="#contacto" onclick="goToSection(event,'contacto')">Contacto</a>
+      </div>
+
+      <a class="nav-cta" href="https://wa.me/573011451490?text=Hola%20GOETHE%20Data%20Solutions%2C%20quiero%20conocer%20sus%20servicios." target="_blank" rel="noopener">Hablemos</a>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu">
+      <a href="#servicios" onclick="goToSection(event,'servicios');toggleMenu()">Servicios</a>
+      <a href="#nosotros" onclick="goToSection(event,'nosotros');toggleMenu()">Nosotros</a>
+      <a href="#proceso" onclick="goToSection(event,'proceso');toggleMenu()">Proceso</a>
+      <a href="#contacto" onclick="goToSection(event,'contacto');toggleMenu()">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero tech-bg">
+    <div class="circuit c1"></div><div class="circuit c2"></div>
+    <div class="glow g1"></div><div class="glow g2"></div>
+
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><i></i> Tecnología al alcance de todos</div>
+
+        <img class="hero-logo" src="https://lh3.googleusercontent.com/d/1XvWQaX2FAUKJa7gcnMIY9ni_qTT43sTV" alt="GOETHE Data Solutions">
+
+        <div class="hero-line"></div>
+        <h2>Tu visión operativa, hecha realidad.</h2>
+        <p>
+          Diseñamos soluciones tecnológicas que convierten tareas manuales,
+          datos dispersos y procesos repetitivos en herramientas ágiles,
+          confiables y fáciles de gestionar.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#servicios" onclick="goToSection(event,'servicios')">Ver soluciones →</a>
+          <a class="btn btn-outline" href="https://drive.google.com/file/d/1K0giMv96fOljYyruaKhuCnbWn4uw1_mK/view?usp=drive_link" target="_blank" rel="noopener">Ver catálogo</a>
+          <a class="btn btn-outline" href="https://wa.me/573011451490?text=Hola%20GOETHE%20Data%20Solutions%2C%20quiero%20una%20soluci%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener">Solicitar asesoría</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="dashboard-orbit">
+          <div class="laptop">
+            <div class="screen">
+              <div class="screen-grid">
+                <div class="chart"></div>
+                <div class="mini-wrap">
+                  <div class="mini"></div><div class="mini"></div><div class="mini"></div>
+                </div>
+              </div>
+            </div>
+            <div class="laptop-base"></div>
+          </div>
+          <div class="float-card fc1"><b>+Eficiencia</b><span>Procesos optimizados</span></div>
+          <div class="float-card fc2"><b>Datos → Acción</b><span>Información para decidir</span></div>
+          <div class="float-card fc3"><b>Automatización</b><span>Menos trabajo manual</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="servicios" class="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Lo que hacemos</div>
+        <h2>Soluciones para llevar tu operación al siguiente nivel</h2>
+        <p>
+          Desde analítica y automatización hasta herramientas digitales completas,
+          construimos soluciones enfocadas en necesidades reales de empresas,
+          negocios y profesionales.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service">
+          <div class="icon">▥</div>
+          <h3>Dashboards</h3>
+          <p>Visualización ejecutiva y operativa para convertir datos en indicadores claros y decisiones rápidas.</p>
+          <div class="tags"><span class="tag">KPIs</span><span class="tag">Power BI</span><span class="tag">Reportes</span></div>
+        </article>
+
+        <article class="service">
+          <div class="icon">⚙</div>
+          <h3>Automatizaciones</h3>
+          <p>Procesos automáticos que reducen tareas repetitivas, tiempos de operación y riesgo de error humano.</p>
+          <div class="tags"><span class="tag">Excel + VBA</span><span class="tag">Power Query</span><span class="tag">Flujos</span></div>
+        </article>
+
+        <article class="service">
+          <div class="icon">◉</div>
+          <h3>Robots y Chatbots</h3>
+          <p>Herramientas para automatizar interacciones, consultas, confirmaciones y tareas operativas.</p>
+          <div class="tags"><span class="tag">Bots</span><span class="tag">WhatsApp</span><span class="tag">Automatización</span></div>
+        </article>
+
+        <article class="service">
+          <div class="icon">⌘</div>
+          <h3>Soluciones digitales a la medida</h3>
+          <p>Diseñamos herramientas digitales según el proceso específico que necesitas resolver.</p>
+          <div class="tags"><span class="tag">A la medida</span><span class="tag">Operación</span><span class="tag">Tecnología</span></div>
+        </article>
+
+        <article class="service">
+          <div class="icon">▣</div>
+          <h3>Tiendas virtuales</h3>
+          <p>Experiencias digitales para presentar productos y servicios y llevar tu negocio al entorno online.</p>
+          <div class="tags"><span class="tag">E-commerce</span><span class="tag">Catálogo</span><span class="tag">Web</span></div>
+        </article>
+
+        <article class="service">
+          <div class="icon">⌘</div>
+          <h3>Aplicaciones y sistemas</h3>
+          <p>Aplicaciones y plataformas para empresas, negocios y profesionales que necesitan organizar y mejorar su operación.</p>
+          <div class="tags"><span class="tag">Apps web</span><span class="tag">Sistemas</span><span class="tag">Plataformas</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="nosotros" class="about tech-bg">
+    <div class="circuit c1"></div><div class="circuit c2"></div>
+    <div class="container about-grid">
+      <div>
+        <div class="kicker" style="color:#66d9ff">Nuestra esencia</div>
+        <h2>Tecnología al alcance de todos.</h2>
+        <p>
+          En GOETHE Data Solutions transformamos necesidades operativas en soluciones
+          inteligentes. Integramos datos, automatización, analítica y desarrollo digital
+          para que empresas, negocios y profesionales puedan trabajar con mayor agilidad,
+          precisión y control.
+        </p>
+        <div class="about-card">
+          “Tus datos en acción, tus procesos en automático.”
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar"><strong>Agilidad</strong><span>Procesos más rápidos y herramientas que simplifican el trabajo.</span></div>
+        <div class="pillar"><strong>Precisión</strong><span>Información estandarizada y menor exposición al error manual.</span></div>
+        <div class="pillar"><strong>Inteligencia operativa</strong><span>Datos y soluciones orientadas a mejorar la toma de decisiones.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IDENTITY -->
+  <section class="identity">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">ADN de GOETHE</div>
+        <h2>Una tecnología pensada para resolver problemas reales</h2>
+        <p>
+          Nuestra propuesta combina rigor técnico, creatividad y accesibilidad para
+          convertir necesidades concretas en soluciones útiles, sostenibles y escalables.
+        </p>
+      </div>
+
+      <div class="identity-grid">
+        <article class="identity-card">
+          <h3>Misión</h3>
+          <p>
+            Transformar la operatividad de empresas, negocios y profesionales mediante
+            automatización, analítica y soluciones digitales a la medida, convirtiendo
+            procesos repetitivos y datos dispersos en herramientas confiables que faciliten
+            el trabajo y la toma de decisiones.
+          </p>
+        </article>
+
+        <article class="identity-card">
+          <h3>Visión</h3>
+          <p>
+            Ser un aliado estratégico en transformación y optimización digital,
+            democratizando el acceso a soluciones tecnológicas que permitan a negocios
+            de distintos tamaños trabajar de forma más eficiente, ágil y rentable.
+          </p>
+        </article>
+
+        <article class="identity-card">
+          <h3>Valores</h3>
+          <div class="value-list">
+            <div class="value-item"><span class="value-dot"></span><span><b>Creatividad:</b> diseñamos soluciones innovadoras para necesidades reales.</span></div>
+            <div class="value-item"><span class="value-dot"></span><span><b>Disciplina:</b> rigurosidad técnica, orden y precisión.</span></div>
+            <div class="value-item"><span class="value-dot"></span><span><b>Accesibilidad:</b> tecnología comprensible y al alcance de todos.</span></div>
+            <div class="value-item"><span class="value-dot"></span><span><b>Eficacia:</b> soluciones orientadas a resultados tangibles.</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="proceso">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Cómo trabajamos</div>
+        <h2>Hagamos tu operación más inteligente</h2>
+        <p>Un enfoque práctico para entender tu proceso, diseñar la solución y llevarla a una herramienta funcional.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="step"><div class="step-number">01</div><h3>Entendemos</h3><p>Conocemos tu operación, necesidades, datos y puntos críticos.</p></div>
+        <div class="step"><div class="step-number">02</div><h3>Diseñamos</h3><p>Definimos la estructura, flujo y experiencia de la solución.</p></div>
+        <div class="step"><div class="step-number">03</div><h3>Desarrollamos</h3><p>Construimos, automatizamos e integramos con las herramientas adecuadas.</p></div>
+        <div class="step"><div class="step-number">04</div><h3>Entregamos</h3><p>Probamos, ajustamos y dejamos una solución lista para utilizar y evolucionar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="catalog">
+    <div class="container">
+      <div class="catalog-box">
+        <div>
+          <h3>Conoce nuestro catálogo de soluciones</h3>
+          <p>Explora proyectos, capacidades y servicios de GOETHE Data Solutions.</p>
+        </div>
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1K0giMv96fOljYyruaKhuCnbWn4uw1_mK/view?usp=drive_link" target="_blank" rel="noopener">Ver catálogo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="glow g1"></div>
+    <div class="container cta-box">
+      <div>
+        <div class="kicker" style="color:#66d9ff">¿Tienes un proceso que quieres mejorar?</div>
+        <h2>Hagamos que tu operación sea más inteligente.</h2>
+        <p>Cuéntanos qué necesitas y evaluamos contigo la mejor solución.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://wa.me/573011451490?text=Hola%20GOETHE%20Data%20Solutions%2C%20quiero%20contarles%20un%20proyecto." target="_blank" rel="noopener">Hablar por WhatsApp</a>
+        <a class="btn btn-outline" href="mailto:contacto@goethedatasolutions.com">Enviar correo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" class="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Contacto</div>
+        <h2>Hablemos de tu proyecto</h2>
+        <p>Una conversación puede ser el primer paso para convertir una necesidad operativa en una solución digital.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>GOETHE Data Solutions</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div><strong>Correo</strong><a href="mailto:contacto@goethedatasolutions.com">contacto@goethedatasolutions.com</a></div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">☎</div>
+            <div><strong>WhatsApp</strong><a href="https://wa.me/573011451490" target="_blank" rel="noopener">301 145 1490</a></div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">G</div>
+            <div><strong>Dirección</strong><span>Luis Goethe — Director de Tecnología</span></div>
+          </div>
+
+          <p class="contact-note">
+            Soluciones para empresas, negocios y profesionales que buscan automatizar,
+            visualizar, digitalizar o mejorar sus procesos.
+          </p>
+
+          <a class="contact-button" href="https://wa.me/573011451490?text=Hola%20Luis%2C%20vi%20GOETHE%20Data%20Solutions%20y%20quiero%20hablar%20sobre%20una%20soluci%C3%B3n." target="_blank" rel="noopener">Contactar ahora →</a>
+        </div>
+
+        <div class="contact-card dark-card">
+          <div class="glow g1"></div>
+          <div class="card-content">
+            <div class="kicker">GOETHE Data Solutions</div>
+            <h3>Soluciones inteligentes para transformar tu operación.</h3>
+            <p>
+              Dashboards, automatizaciones, robots y chatbots, soluciones digitales
+              a la medida, tiendas virtuales y aplicaciones y sistemas para empresas,
+              negocios y profesionales.
+            </p>
+            <div class="service-line">
+              <span class="service-pill">Dashboards</span>
+              <span class="service-pill">Automatización</span>
+              <span class="service-pill">Robots & Chatbots</span>
+              <span class="service-pill">Soluciones digitales</span>
+              <span class="service-pill">Tiendas virtuales</span>
+              <span class="service-pill">Apps & Sistemas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        GOETHE Data Solutions
+        <span>TECNOLOGÍA AL ALCANCE DE TODOS</span>
+      </div>
+      <p>© <span id="year"></span> GOETHE Data Solutions. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const year = document.getElementById('year');
+    year.textContent = new Date().getFullYear();
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 25);
+    });
+
+    function toggleMenu(){
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function goToSection(event, id){
+      if(event) event.preventDefault();
+      const target = document.getElementById(id);
+      if(!target) return;
+
+      target.scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
+
+      try{
+        history.replaceState(null, '', '#' + id);
+      }catch(e){}
+    }
+  </script>
+
+</body>
+</html>
